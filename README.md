@@ -3,4 +3,4 @@ Proyecto de grado para obtener titulo de pregrado de ingeniero de sistema de la 
 
 Propetarios: 
 Diego Giovanny Enriquez Guevara - diegogeg21@gmail.com
-Oscar Alexander Rodriguez Insuasty - 
+Oscar Alexander Rodriguez Insuasty - rodriguezinsuastyoscar@gmail.com
