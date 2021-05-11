@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
@@ -48,12 +49,12 @@ dataset_final=dataset.iloc[:,:28]
 print("\nDimensiones de dataset1 : ",dataset_final.shape)
 
 #Se concatena la variable clasificacion en una sola dimensión
-#clasificacion=np.array(clasificacion).flatten()
-#print("\nDimensiones de 'clasificacion' : ",clasificacion.shape)
+clasificacion=np.array(clasificacion).flatten()
+print("\nDimensiones de 'clasificacion' : ",clasificacion.shape)
 
 #Entrenamiento y pruebas del dataset
 #test_size = porcentaje de los datos tomados para las pruebas o testeo
 #random_state = Se evita la aleatoridad en el conjunto de datos 
-Xtrain,Xtest,Ytrain,Ytest=train_test_split(dataset_final,clasificacion,test_size=0.3,random_state=1)##########################
+Xtrain,Xtest,Ytrain,Ytest=train_test_split(dataset_final,clasificacion,test_size=0.3,random_state=1)
 
 print("\nPreparacion de la data completada")
