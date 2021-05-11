@@ -17,7 +17,7 @@ Estructura del proyecto:
     - botnet.csv (datos de botnets Mirai y BASHLITE)
     - trafico_iot.csv (datos del trafico generado en IoT)
 - interfaz.py (La interfaz donde el usuario carga y visualiza el modelo)
-- modelos.py (Se cargan todos los algoritmos a tratar para el modelo)
+- modelo.py (Se cargan todos los algoritmos a tratar para el modelo)
 - preparacion_data.py (Preparación del modelo e importación de los datos)
 
 Algoritmos de aprendizaje supervisado (Machine Learning)
