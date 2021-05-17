@@ -1,7 +1,7 @@
 # DETECCION-DE-BOTNETS-CON-UN-MODELO-BASADO-EN-ANALISIS-DE-TRAFICO-APLICADO-A-IOT
 Proyecto de grado para obtener titulo de ingeniero de sistemas de la universidad Cesmag - Colombia
 
-Propetarios: 
+Autores: 
 Diego Giovanny Enriquez Guevara - diegogeg21@gmail.com
 Oscar Alexander Rodriguez Insuasty - rodriguezinsuastyoscar@gmail.com
 
@@ -13,16 +13,16 @@ Versionado:
 - scikit-learn 0.24.2
 
 Estructura del proyecto: 
-- Carpeta Data (contiene datasets a trabajar)
+- Data (contiene datasets a trabajar)
     - botnet.csv (datos de botnets Mirai y BASHLITE)
     - trafico_iot.csv (datos del trafico generado en IoT)
-- interfaz.py (La interfaz donde el usuario carga y visualiza el modelo)
-- modelo.py (Se cargan todos los algoritmos a tratar para el modelo)
+- modelo_naive_bayes.py (Se realiza entrenamiento y pruebas con Naive Bayes)
+- modelo_regresion_logistica.py (Se realiza entrenamiento y pruebas con Regresión Logistica)
+- modelo_vecino_mas_cercano.py (Se realiza entrenamiento y pruebas con Vecino mas Cercano)
+- interfaz.py (La interfaz donde el usuario carga y visualiza el modelo a su elección)
 - preparacion_data.py (Preparación del modelo e importación de los datos)
 
-Algoritmos de aprendizaje supervisado (Machine Learning)
-- Regresión Logistica
-- Preceptor
-- Arboles de desicion
+Algoritmos de aprendizaje supervisado (Machine Learning):
 - Naive Bayes
-- KNN Classifier
+- Regresión Logistica
+- Vecino mas cercano
