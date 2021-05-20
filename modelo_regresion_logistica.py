@@ -1,5 +1,5 @@
 from preparacion_data import Xtrain,Xtest,Ytrain,Ytest
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
 from matplotlib import pyplot as plt
 from sklearn.linear_model import LogisticRegression
 
@@ -19,6 +19,10 @@ print("Precisión de Regresión logistica: ",precision_score(Prediccion_regresio
 print("Recordar de Regresión logistica: ",recall_score(Prediccion_regresion_logistica,Ytest))
 print("F-Measure de Regresión logistica: ",f1_score(Prediccion_regresion_logistica,Ytest))
 
+#Reporte
+print("Reporte")
+print(classification_report(Ytest, Prediccion_regresion_logistica, labels=[0, 1]))
+
 #Grafica del modelo
 plt.title("Regresión Logistica",
     fontdict={
@@ -35,4 +39,5 @@ plt.plot(Ytest_p,c='b',label="Data de prueba")
 plt.plot(Grafica,c='r',label="Predicción del ataque")
 plt.legend(loc='upper left')
 plt.show()
+
 

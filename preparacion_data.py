@@ -55,6 +55,6 @@ print("\nDimensiones de 'clasificacion' : ",clasificacion.shape)
 #Entrenamiento y pruebas del dataset
 #test_size = porcentaje de los datos tomados para las pruebas o testeo
 #random_state = Se evita la aleatoridad en el conjunto de datos 
-Xtrain,Xtest,Ytrain,Ytest=train_test_split(dataset_final,clasificacion,test_size=0.3,random_state=1)
+Xtrain,Xtest,Ytrain,Ytest=train_test_split(dataset_final,clasificacion,test_size=0.2,random_state=993)
 
 print("\nPreparacion de la data completada")
