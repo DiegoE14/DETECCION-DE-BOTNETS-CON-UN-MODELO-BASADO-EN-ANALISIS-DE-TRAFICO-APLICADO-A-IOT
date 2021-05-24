@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.utils import shuffle
+from sklearn.svm import SVC
 
 #Se carga Data 
 print("--------- Importando Data... ---------\n")
@@ -46,15 +47,15 @@ dataset=dataset.drop(['clasificacion'],axis=1)
 #Se elimina las columnas apartir de la columna 29 en adelante debido a que
 #mostró valores atípicos bastante obvios y tipos de datos sobreajustados.
 dataset_final=dataset.iloc[:,:28]
-print("\nDimensiones de dataset1 : ",dataset_final.shape)
+print("\nDimensiones de dataset final : ",dataset_final.shape)
 
 #Se concatena la variable clasificacion en una sola dimensión
 clasificacion=np.array(clasificacion).flatten()
 print("\nDimensiones de 'clasificacion' : ",clasificacion.shape)
 
-#Entrenamiento y pruebas del dataset
+#Separación de variables de entrenamiento y pruebas del dataset
 #test_size = porcentaje de los datos tomados para las pruebas o testeo
 #random_state = Se evita la aleatoridad en el conjunto de datos 
-Xtrain,Xtest,Ytrain,Ytest=train_test_split(dataset_final,clasificacion,test_size=0.2,random_state=993)
+Xtrain,Xtest,Ytrain,Ytest=train_test_split(dataset_final,clasificacion,test_size=0.2,random_state=0)
 
 print("\nPreparacion de la data completada")
