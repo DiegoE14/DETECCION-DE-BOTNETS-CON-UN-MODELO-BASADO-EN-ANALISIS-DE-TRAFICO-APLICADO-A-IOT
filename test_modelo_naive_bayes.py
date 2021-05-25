@@ -29,11 +29,13 @@ plt1.plot(ns_fpr, ns_tpr, linestyle='--', label='Sin entrenar')
 plt1.plot(lr_fpr, lr_tpr, marker='.', label='Naive Bayes')
 plt1.xlabel('Tasa de Falsos Positivos')
 plt1.ylabel('Tasa de Verdaderos Positivos')
+plt1.title('Curva ROC Naive Bayes')
 plt1.legend()
 plt1.show()
 
 #Grafica matriz de confusión
 plot_confusion_matrix(naive_bayes, Xtest, Ytest)  
+plt2.title('Matriz de Confusión Naive Bayes')
 plt2.show() 
 
 #Grafica del modelo

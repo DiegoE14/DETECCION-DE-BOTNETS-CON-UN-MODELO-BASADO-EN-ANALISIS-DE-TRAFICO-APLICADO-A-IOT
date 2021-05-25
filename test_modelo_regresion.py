@@ -52,11 +52,11 @@ plt2.plot(loglr_fpr,loglr_tpr, marker ='.',label = 'Regreción Logistica (auc = 
 auc_log)
 plt2.xlabel('Tasa de Falsos Positivos')
 plt2.ylabel('Tasa de Verdaderos Positivos')
-plt2.title('Curva ROC')
+plt2.title('Curva ROC Regresión Logistica')
 plt2.legend()
 plt2.show()
 
 #Matrix de confusión
 plot_confusion_matrix(regresion_logistica, Xtest, Ytest)
-plt3.title('Matriz de Confusión')
+plt3.title('Matriz de Confusión Regresión Logistica')
 plt3.show()

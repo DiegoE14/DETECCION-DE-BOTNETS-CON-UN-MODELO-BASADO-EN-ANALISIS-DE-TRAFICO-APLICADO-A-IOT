@@ -32,11 +32,13 @@ plt1.plot(ns_fpr, ns_tpr, linestyle='--', label='Sin entrenar')
 plt1.plot(lr_fpr, lr_tpr, marker='.', label='Vecino mas Cercano')
 plt1.xlabel('Tasa de Falsos Positivos')
 plt1.ylabel('Tasa de Verdaderos Positivos')
+plt1.title('Curva ROC Vecino mas cercano')
 plt1.legend()
 plt1.show()
 
 #Grafica matriz de confusión
-plot_confusion_matrix(KNN, Xtest, Ytest)  
+plot_confusion_matrix(KNN, Xtest, Ytest)
+plt2.title('Matriz de Confusión Vecino mas Cercano')  
 plt2.show() 
 
 #Grafica del modelo

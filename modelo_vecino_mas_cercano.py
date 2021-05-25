@@ -16,7 +16,7 @@ KNN.fit(Xtrain,Ytrain)
 score = KNN.score(Xtrain,Ytrain)
 dump(KNN,'modelo_vecino_mas_cercano_entrenado.joblib')
 
-print("\n\tEntrenamiento Regresión Logistica completado\n")
+print("\n\tEntrenamiento Regresión Vecino mas cercano\n")
 print("Metrica del modelo", score)
 scores = cross_val_score(KNN, Xtrain, Ytrain, cv=kf, scoring="accuracy")
 print("Metricas cross_validation", scores)
