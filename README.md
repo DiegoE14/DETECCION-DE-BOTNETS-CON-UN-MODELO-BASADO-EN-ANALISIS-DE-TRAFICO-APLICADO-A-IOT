@@ -11,6 +11,7 @@ Versionado:
 - numpy 1.19.5
 - matplotlib 3.4.2
 - scikit-learn 0.24.2
+- joblib
 
 Estructura del proyecto: 
 - Data (contiene datasets a trabajar)
