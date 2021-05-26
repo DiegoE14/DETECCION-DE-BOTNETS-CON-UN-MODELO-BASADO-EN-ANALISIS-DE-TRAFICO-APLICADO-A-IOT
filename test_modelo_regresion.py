@@ -1,22 +1,38 @@
-from preparacion_data import Xtest,Ytest
+from sklearn import metrics
+from preparacion_data import Xtest,Ytest,Xtrain,Ytrain
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report,roc_curve,auc,plot_confusion_matrix
 from matplotlib import pyplot as plt
 from matplotlib import pyplot as plt2
 from matplotlib import pyplot as plt3
 from joblib import load
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import KFold
 
 regresion_logistica = load('modelo_regresion_logistica_entrenado.joblib') 
 
 #Pruebas o testeo de Regresion Logistica
 Prediccion_regresion_logistica=regresion_logistica.predict(Xtest)
-print("Puntuación del modelo con Regresión logistica: ",regresion_logistica.score(Xtest,Ytest)*100)
+score_pred = metrics.accuracy_score(Ytest, Prediccion_regresion_logistica)
+
+#Validacion Cruzada
+kf = KFold(n_splits=5)
+score = regresion_logistica.score(Xtrain,Ytrain)
+print("\nValidacion Cruzada\n")
+print("Metrica del modelo", score)
+print("Metrica en Test", score_pred)
+scores = cross_val_score(regresion_logistica, Xtrain, Ytrain, cv=kf, scoring="accuracy")
+print("Metricas cross_validation", scores)
+print("Media de cross_validation", scores.mean())
+
+#Variables
+print("\nMetricas Calculadas\n")
 print("Exactitud de Regresión logistica: ",accuracy_score(Prediccion_regresion_logistica,Ytest))
 print("Precisión de Regresión logistica: ",precision_score(Prediccion_regresion_logistica,Ytest))
 print("Recordar de Regresión logistica: ",recall_score(Prediccion_regresion_logistica,Ytest))
 print("F-Measure de Regresión logistica: ",f1_score(Prediccion_regresion_logistica,Ytest))
 
 #Reporte
-print("Reporte")
+print("\n\tReporte\n")
 print(classification_report(Ytest, Prediccion_regresion_logistica, labels=[0, 1]))
 
 #Grafica del modelo

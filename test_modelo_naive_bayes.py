@@ -1,22 +1,38 @@
-from preparacion_data import Xtest,Ytest
+from sklearn import metrics
+from preparacion_data import Xtest,Ytest,Xtrain,Ytrain
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report, roc_curve, plot_confusion_matrix
 from matplotlib import pyplot as plt1
 from matplotlib import pyplot as plt2
 from matplotlib import pyplot as plt3
 from joblib import load
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import KFold
 
 naive_bayes = load('modelo_naive_bayes_entrenado.joblib')
 
 #Pruebas o testeo de Naive Bayes
 Prediccion_naive_bayes=naive_bayes.predict(Xtest)
-print("Puntuación del modelo con Naive Bayes: ",naive_bayes.score(Xtest,Ytest)*100)
+score_pred = metrics.accuracy_score(Ytest, Prediccion_naive_bayes)
+
+#Validacion Cruzada
+kf = KFold(n_splits=5)
+score = naive_bayes.score(Xtrain,Ytrain)
+print("\nValidacion Cruzada\n")
+print("Metrica del modelo", score)
+print("Metrica en Test", score_pred)
+scores = cross_val_score(naive_bayes, Xtrain, Ytrain, cv=kf, scoring="accuracy")
+print("Metricas cross_validation", scores)
+print("Media de cross_validation", scores.mean())
+
+#Variables
+print("\nMetricas Calculadas\n")
 print("Exactitud de Naive Bayes: ",accuracy_score(Prediccion_naive_bayes,Ytest))
 print("Precisión de Naive Bayes: ",precision_score(Prediccion_naive_bayes,Ytest))
 print("Recordar de Naive Bayes: ",recall_score(Prediccion_naive_bayes,Ytest))
 print("F-Measure de Naive Bayes: ",f1_score(Prediccion_naive_bayes,Ytest))
 
 #Reporte
-print("Reporte")
+print("\n\tReporte\n")
 print(classification_report(Ytest, Prediccion_naive_bayes, labels=[0, 1]))
 
 #Grafica curvas roc
