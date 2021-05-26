@@ -16,10 +16,6 @@ score_pred = metrics.accuracy_score(Ytest, Prediccion_naive_bayes)
 
 #Validacion Cruzada
 kf = KFold(n_splits=5)
-score = naive_bayes.score(Xtrain,Ytrain)
-print("\nValidacion Cruzada\n")
-print("Metrica del modelo", score)
-print("Metrica en Test", score_pred)
 scores = cross_val_score(naive_bayes, Xtrain, Ytrain, cv=kf, scoring="accuracy")
 print("Metricas cross_validation", scores)
 print("Media de cross_validation", scores.mean())

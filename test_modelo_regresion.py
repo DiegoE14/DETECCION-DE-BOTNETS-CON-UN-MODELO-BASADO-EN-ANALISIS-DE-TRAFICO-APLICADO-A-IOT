@@ -16,10 +16,6 @@ score_pred = metrics.accuracy_score(Ytest, Prediccion_regresion_logistica)
 
 #Validacion Cruzada
 kf = KFold(n_splits=5)
-score = regresion_logistica.score(Xtrain,Ytrain)
-print("\nValidacion Cruzada\n")
-print("Metrica del modelo", score)
-print("Metrica en Test", score_pred)
 scores = cross_val_score(regresion_logistica, Xtrain, Ytrain, cv=kf, scoring="accuracy")
 print("Metricas cross_validation", scores)
 print("Media de cross_validation", scores.mean())

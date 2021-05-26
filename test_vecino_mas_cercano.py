@@ -17,10 +17,6 @@ score_pred = metrics.accuracy_score(Ytest, Prediccion_KNN) #revisar este valor c
 
 #Validacion Cruzada
 kf = KFold(n_splits=5)
-score = KNN.score(Xtrain,Ytrain)
-print("\nValidacion Cruzada\n")
-print("Metrica del modelo", score)
-print("Metrica en Test", score_pred)
 scores = cross_val_score(KNN, Xtrain, Ytrain, cv=kf, scoring="accuracy")
 print("Metricas cross_validation", scores)
 print("Media de cross_validation", scores.mean())
