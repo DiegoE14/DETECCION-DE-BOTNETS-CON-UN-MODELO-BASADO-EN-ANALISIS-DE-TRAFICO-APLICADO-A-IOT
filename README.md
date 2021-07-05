@@ -24,4 +24,4 @@ Estructura del proyecto:
 - test_modelo.py (Se realizan pruebas y graficas para ver su eficacia)
 
 Algoritmo de aprendizaje supervisado (Machine Learning) utilizado:
-- Naive Bayes
+- Vecino mas cercano

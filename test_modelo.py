@@ -23,7 +23,7 @@ print("Media de cross_validation", scores.mean())
 
 #Variables
 print("\nMetricas Calculadas\n")
-print("Exactitud: ",accuracy_score(Prediccion_KNN,Ytest)) #->este valor
+print("Exactitud: ",accuracy_score(Prediccion_KNN,Ytest)) 
 print("Precisión: ",precision_score(Prediccion_KNN,Ytest))
 print("Recordar: ",recall_score(Prediccion_KNN,Ytest))
 print("F-Measure: ",f1_score(Prediccion_KNN,Ytest))

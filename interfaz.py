@@ -1,6 +1,9 @@
 from tkinter import * #Carga módulo tk (widgets estándar)
 from tkinter import ttk #Carga ttk (para widgets nuevos 8.5 o más)
 from tkinter.filedialog import askopenfilename
+from tkinter.font import BOLD
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report, roc_curve, plot_confusion_matrix
+from test_modelo import Prediccion_KNN,Ytest
 
 interfaz = Tk()
 
@@ -18,48 +21,26 @@ interfaz.title('DETECCION DE BOTNETS CON UN MODELO BASADO EN ANALISIS DE TRAFICO
 frame = Frame(interfaz, width=300)
 frame.configure(bg= '#204056')
 
-label = Label(frame, text='Cargar Dataset (.csv): ')
-label.grid(row=0, column=0, rowspan=1, columnspan=1, padx=10, pady=10, sticky=(W, E))
-label.configure(bg= '#204056', fg= 'white', font=('Verdana', 12))
+titulo = Label(frame, text='Estadisticas del modelo')
+titulo.grid(row=0, column=0, rowspan=1, columnspan=1, padx=10, pady=10, sticky=(W, E))
+titulo.configure(bg= '#204056', fg= 'white', font=('Verdana', 12, BOLD))
 
-v = StringVar(frame, value='.csv')
-entry = Entry(frame, textvariable = v)
-entry.grid(row=0, column=1, rowspan=1, columnspan=1, padx=10, pady=10, sticky=(W, E))
+Exactitud = Label(frame, text='Exactitud: ' )
+Exactitud.grid(row=1, column=0, rowspan=1, columnspan=1, padx=10, pady=10, sticky=(W, E))
+Exactitud.configure(bg= '#204056', fg= 'white', font=('Verdana', 12))
 
-button = Button(frame, text='Browse')
-button.bind('<1>', lambda e: v.set(askopenfilename().split('/')[-1]))
-button.grid(row=0, column=2, rowspan=1, columnspan=1, padx = 10, pady=10)
+Precisión = Label(frame, text='Precisión: ')
+Precisión.grid(row=1, column=1, rowspan=1, columnspan=1, padx=10, pady=10, sticky=(W, E))
+Precisión.configure(bg= '#204056', fg= 'white', font=('Verdana', 12))
 
-label2 = Label(frame, text='Cargar Dataset (.csv): ')
-label2.grid(row=1, column=0, rowspan=1, columnspan=1, padx=10, pady=10, sticky=(W, E))
-label2.configure(bg= '#204056', fg= 'white', font=('Verdana', 12))
+Recordar = Label(frame, text='Recordar: ')
+Recordar.grid(row=2, column=0, rowspan=1, columnspan=1, padx=10, pady=10, sticky=(W, E))
+Recordar.configure(bg= '#204056', fg= 'white', font=('Verdana', 12))
 
-v2 = StringVar(frame, value='.csv')
-entry2 = Entry(frame, textvariable = v)
-entry2.grid(row=1, column=1, rowspan=1, columnspan=1, padx=10, pady=10, sticky=(W, E))
+F_Measure = Label(frame, text='F-Measure: ')
+F_Measure.grid(row=2, column=1, rowspan=1, columnspan=1, padx=10, pady=10, sticky=(W, E))
+F_Measure.configure(bg= '#204056', fg= 'white', font=('Verdana', 12))
 
-button2 = Button(frame, text='Browse')
-button2.bind('<1>', lambda e: v.set(askopenfilename().split('/')[-1]))
-button2.grid(row=1, column=2, rowspan=1, columnspan=1, padx = 10, pady=10)
-
-
-machineLabel = Label(frame, text='Algoritmo: ')
-machineLabel.grid(row=2, column=0, padx=10, pady=10, sticky=(W, ))
-machineLabel.configure(bg= '#204056', fg= 'white', font=('Verdana', 12))
-
-combo = ttk.Combobox(frame)
-combo['values'] = sorted(['Naive Bayes', 'Regresión Logisitcia', 'Vecino mas Cercano'])
-combo.grid(row=2, column=1, padx=10, pady=10)
-
-v2 = StringVar(frame, value='Accuracy: ')
-resultLabel = Label(frame, textvariable=v2)
-
-calButton = Button(frame, text='Go')
-calButton.bind('<1>', lambda e: callSuitable(combo.get(), v2))
-calButton.grid(row=2, column=2, sticky = (E, W), padx=10, pady=10)
-
-
-resultLabel.grid(row=3, pady=10, padx=10, columnspan=3, sticky=(W, ))
 
 frame.grid()
 
