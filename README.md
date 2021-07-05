@@ -17,13 +17,11 @@ Estructura del proyecto:
 - Data (contiene datasets a trabajar)
     - botnet.csv (datos de botnets Mirai y BASHLITE)
     - trafico_iot.csv (datos del trafico generado en IoT)
-- modelo_naive_bayes.py (Se realiza entrenamiento y pruebas con Naive Bayes)
-- modelo_regresion_logistica.py (Se realiza entrenamiento y pruebas con Regresión Logistica)
-- modelo_vecino_mas_cercano.py (Se realiza entrenamiento y pruebas con Vecino mas Cercano)
-- interfaz.py (La interfaz donde el usuario carga y visualiza el modelo a su elección)
+- interfaz.py (Interfaz sencilla que funciona como dashboard)
+- modelo_entrenado.py (Se guarda el entrenamiento del modelo)
+- modelo.py (Se realiza entrenamiento y pruebas)
 - preparacion_data.py (Preparación del modelo e importación de los datos)
+- test_modelo.py (Se realizan pruebas y graficas para ver su eficacia)
 
-Algoritmos de aprendizaje supervisado (Machine Learning):
+Algoritmo de aprendizaje supervisado (Machine Learning) utilizado:
 - Naive Bayes
-- Regresión Logistica
-- Vecino mas cercano
