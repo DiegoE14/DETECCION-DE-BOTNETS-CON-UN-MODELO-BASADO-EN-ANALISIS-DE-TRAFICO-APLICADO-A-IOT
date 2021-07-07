@@ -33,37 +33,36 @@ print("\n\tReporte\n")
 print(classification_report(Ytest, Prediccion_KNN, labels=[0, 1]))
 
 #Grafica curvas roc
-ns_probs = [0 for _ in range(len(Ytest))]
-lr_probs = KNN.predict_proba(Xtest)
-lr_probs = lr_probs[:, 1]
-ns_fpr, ns_tpr, _ = roc_curve(Ytest, ns_probs)
-lr_fpr, lr_tpr, _ = roc_curve(Ytest, lr_probs)
-plt1.plot(ns_fpr, ns_tpr, linestyle='--', label='Sin entrenar')
-plt1.plot(lr_fpr, lr_tpr, marker='.', label='Modelo')
-plt1.xlabel('Tasa de Falsos Positivos')
-plt1.ylabel('Tasa de Verdaderos Positivos')
-plt1.title('Curva ROC')
-plt1.legend()
-plt1.show()
+#lr_probs = KNN.predict_proba(Xtest)
+#lr_probs = lr_probs[:, 1]
+#ns_fpr, ns_tpr, _ = roc_curve(Ytest, ns_probs)
+#lr_fpr, lr_tpr, _ = roc_curve(Ytest, lr_probs)
+#plt1.plot(ns_fpr, ns_tpr, linestyle='--', label='Sin entrenar')
+#plt1.plot(lr_fpr, lr_tpr, marker='.', label='Modelo')
+#plt1.xlabel('Tasa de Falsos Positivos')
+#plt1.ylabel('Tasa de Verdaderos Positivos')
+#plt1.title('Curva ROC')
+#plt1.legend()
+#plt1.show()
 
 #Grafica matriz de confusión
-plot_confusion_matrix(KNN, Xtest, Ytest)
-plt2.title('Matriz de Confusión')
-plt2.show()
+#plot_confusion_matrix(KNN, Xtest, Ytest)
+#plt2.title('Matriz de Confusión')
+#plt2.show()
 
 #Grafica del modelo
-plt3.title("Modelo",
-    fontdict={
-        'family': 'serif',
-        'color' : 'darkblue',
-        'weight': 'bold',
-        'size'  : 18
-    })
-Ytest_p=Ytest[:100]
-Grafica=Prediccion_KNN[:100]
-plt3.xlabel('X(Time->)')
-plt3.ylabel('0 para anomalo 1 para normal')
-plt3.plot(Ytest_p,c='b',label="Data de prueba")
-plt3.plot(Grafica,c='r',label="Predicción del ataque")
-plt3.legend(loc='upper left')
-plt3.show()
+#plt3.title("Modelo",
+#    fontdict={
+#        'family': 'serif',
+#        'color' : 'darkblue',
+#        'weight': 'bold',
+#        'size'  : 18
+#    })
+#Ytest_p=Ytest[:100]
+#Grafica=Prediccion_KNN[:100]
+#plt3.xlabel('X(Time->)')
+#plt3.ylabel('0 para anomalo 1 para normal')
+#plt3.plot(Ytest_p,c='b',label="Data de prueba")
+#plt3.plot(Grafica,c='r',label="Predicción del ataque")
+#plt3.legend(loc='upper left')
+#plt3.show()
